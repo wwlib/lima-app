@@ -1,0 +1,36 @@
+.LimaAppDashboard {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    padding: 12px;
+  }
+
+  .LimaAppDashboard-row {
+    margin-top: 6px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .LimaAppDashboard-messages {
+    background-color: #282c34;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .LimaAppDashboard-messages textarea {
+    margin: auto;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    text-align: left;
+  }
+
+  .LimaAppDashboard-photo img {
+    width: 100%;
+  }
+  
