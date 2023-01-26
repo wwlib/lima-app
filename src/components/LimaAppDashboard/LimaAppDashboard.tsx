@@ -60,7 +60,7 @@ function LimaAppDashboard({ model }: { model: Model }) {
                             inputData: {},
                             type: 'device',
                             serviceType: 'gpt3text',
-                            appName: 'gpt3text/jibo-chitchat-jan-2023',
+                            appName: 'gpt3text/robo-chitchat-jan-2023',
                             accountId: clientAccountId,
                             environment: 'environment', // TODO: get this value from somewhere. env?
                         }
