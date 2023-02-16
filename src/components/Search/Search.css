@@ -1,0 +1,113 @@
+#searchResultsContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+
+#searchResultLinks {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    overflow: scroll;
+}
+
+.searchResultLinksHeader {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 3px;
+    font-weight: bold;
+}
+
+.searchResultLink {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 3px;
+    min-height: 22px;
+    overflow: hidden;
+}
+
+#searchResultsContainer .active {
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: #999;
+}
+
+
+.linkHeaderField {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.linkField {
+    background-color: #333;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.linkId {
+    width: 15%;
+}
+
+.linkCategory {
+    width: 20%;
+}
+
+.linkConfidence {
+    width: 5%;
+}
+
+.linkIntentId {
+    width: 20%;
+}
+
+.linkIndex {
+    width: 5%;
+}
+
+.linkType {
+    width: 10%;
+}
+
+.linkIntentDetail {
+    width: 40%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.linkInput {
+    width: 40%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.linkPriority {
+    width: 15%;
+}
+
+.linkIssueType {
+    width: 25%;
+}
+
+.linkStatus {
+    width: 10%;
+}
+
+
+.searchAnnotationsFields {
+    visibility: hidden;
+}
+
+#searchResultData {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#searchResultData textarea {
+    width: 95%;
+    height: 100px;
+}

@@ -11,7 +11,7 @@ export interface LimaServiceLoginResponse {
     refresh_token: string;
 }
 
-export default class LimaClientController extends EventEmitter {
+export default class LimaSocketClientController extends EventEmitter {
 
     private _serviceUrl: string;
     private _authUrl: string;
@@ -36,12 +36,16 @@ export default class LimaClientController extends EventEmitter {
         this._syncOffset = 0;
     }
 
+    get accountId(): string {
+        return this._accountId
+    }
+
     get connected(): boolean {
         return this._connected;
     }
 
     async login(): Promise<LimaServiceLoginResponse> {
-        console.log('LimaClientController: login', this._authUrl, this._accountId, this._password);
+        console.log('LimaSocketClientController: login', this._authUrl, this._accountId, this._password);
         return new Promise((resolve, reject) => {
             if (this._authUrl && this._accountId && this._password) {
                 this._accessToken = '';
@@ -54,14 +58,14 @@ export default class LimaClientController extends EventEmitter {
                         headers: { 'Content-Type': 'application/json' }
                     })
                     .then((response: any) => {
-                        console.log('LimaClientController: login response', response.data);
+                        console.log('LimaSocketClientController: login response', response.data);
                         this._accessToken = response.data.access_token;
                         // this._accountId = response.data.account_id;
                         this._refreshToken = response.data.refresh_token;
                         resolve(response.data);
                     })
                     .catch((error: any) => {
-                        console.log('LimaClientController: login error', error);
+                        console.log('LimaSocketClientController: login error', error);
                         reject();
                     });
 
@@ -91,13 +95,13 @@ export default class LimaClientController extends EventEmitter {
     }
 
     async connect() {
-        console.log('LimaClientController: connect',)
+        console.log('LimaSocketClientController: connect',)
         if (this._connected) {
             return
         }
 
         const loginResponse: LimaServiceLoginResponse = await this.login();
-        console.log('LimaClientController: loginResponse', loginResponse);
+        console.log('LimaSocketClientController: loginResponse', loginResponse);
         if (loginResponse && loginResponse.access_token && this._serviceUrl) {
 
             this._socket = io(this._serviceUrl, {
@@ -132,7 +136,7 @@ export default class LimaClientController extends EventEmitter {
                                 resolve();
                             });
                         } else {
-                            console.log('LimaClientController: Not sending timesync event. socket is undefined.')
+                            console.log('LimaSocketClientController: Not sending timesync event. socket is undefined.')
                             resolve()
                         }
                     });
@@ -148,17 +152,17 @@ export default class LimaClientController extends EventEmitter {
 
             this._socket.on("connect", () => {
                 this._connected = true;
-                this.log('LimaClientController: socket connected:', this._socket.id)
+                this.log('LimaSocketClientController: socket connected:', this._socket.id)
             });
 
             this._socket.on('disconnect', () => {
-                this.log('LimaClientController: on disconnect. closing...');
+                this.log('LimaSocketClientController: on disconnect. closing...');
                 this._socket = undefined
                 this.dispose()
             });
 
             this._socket.on('message', (data: any) => {
-                this.log('LimaClientController: on message', data);
+                this.log('LimaSocketClientController: on message', data);
             });
 
         } else {
@@ -170,7 +174,7 @@ export default class LimaClientController extends EventEmitter {
         if (this._socket) {
             this._socket.emit('command', commandData)
         } else {
-            console.log(`LimaClientController: sendCommand: _socket is undefined.`)
+            console.log(`LimaSocketClientController: sendCommand: _socket is undefined.`)
         }
     }
 
@@ -180,7 +184,7 @@ export default class LimaClientController extends EventEmitter {
     }
 
     dispose() {
-        console.log(`LimaClientController: DISPOSE`)
+        console.log(`LimaSocketClientController: DISPOSE`)
         if (this._socket) {
             this._socket.close();
             this._socket = undefined;

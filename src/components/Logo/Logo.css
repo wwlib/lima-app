@@ -1,0 +1,25 @@
+.Logo {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Logo img {
+  height: 33px;
+}
+
+.Title {
+  font-weight: bolder;
+  color: #2497ED;
+  /* #24AEA3 */
+}
+
+
+/* @keyframes Logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

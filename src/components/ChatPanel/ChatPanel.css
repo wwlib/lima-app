@@ -1,0 +1,138 @@
+#chatPanelHeader {
+}
+
+#chatDataContainer {
+    grid-column: 1 / 2;
+    width: 700px;
+}
+
+#chatText {
+    width: 100%;
+}
+
+.chatBox {
+    width:400px;
+    padding:10px;
+    height:600px;
+    background: #105085;
+    margin: auto;
+}
+
+.chatContentView {
+    /*margin: 20px;*/
+    /*padding: 20px;*/
+    width: 100%;
+    height: 550px;
+    overflow: scroll;
+    background: #1d5d90;
+}
+
+.chatBubble {
+    /* float: left; */
+    width: auto;
+    max-width: 60%;
+    position: relative;
+    clear: both;
+    background: #0fafdd;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.1);
+    margin: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    word-wrap: break-word;
+    font-size: 1.25em;
+}
+
+.chatBubbleContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatBubbleContentText {
+
+}
+
+.chatBubbleContentButton {
+
+}
+
+.chatBubbleLeft {
+    float: left;
+}
+
+.chatBubbleRight {
+    float: right;
+    background: #19c800;
+}
+
+.chatBubbleButtonFlag {
+    border-style: none;
+    border-radius: 3px;
+    background-color: rgb(201, 37, 37);
+    padding: 6px;
+    margin-top: 10px;
+    color: white;
+    width: 120px;
+    font-size: 0.8em;
+}
+
+/* .bubbleRight {
+    float: right;
+    background: #19c800;
+} */
+
+.chatControls {
+    width:100%;
+    height:50px;
+    /*padding: 1.2em;*/
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.3);
+    /*padding: 0.7em;*/
+}
+
+#chatTextField {
+    width:350px;
+    float:left;
+    margin: 10px 10px 10px 0;
+    font-size: 1.25em;
+}
+
+/* #chatListenButton{
+    float:left;
+    margin:10px;
+    display:none;
+} */
+
+#chatPrompt{
+    float:left;
+    margin: 10px 6px;
+    font-size: 14px;
+}
+
+.chatPromptActive{
+    color: #47c447;
+    font-weight: bold;
+}
+
+/* .chatListenButtonActive{
+    background:#ffe400;
+} */
+
+#container {
+    width: 100px;
+    height: 100px;
+}
+
+blockquote {
+    margin: 0;
+    border-left: 3px solid #ffffffad;
+    background: #ffffff40;
+    border-radius: 0px;
+}
+
+blockquote p {
+    padding: 15px;
+    color: #ffffffff;
+    font-style: italic;
+}
