@@ -171,8 +171,8 @@ export class Search extends React.Component<SearchProps, SearchState> {
       { label: 'unassigned', value: 'unassigned' }
     ]
 
-    const assignedToEmail: string = this.props.appModel.accountId
-    const assignedToSelected = { label: assignedToEmail, value: this.state.assignedTo }
+    const assignedToAccount: string = this.props.appModel.accountId
+    const assignedToSelected = { label: assignedToAccount, value: this.state.assignedTo }
 
     const commonFields: any = (
       <>

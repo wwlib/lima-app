@@ -46,13 +46,7 @@ export class Transaction extends React.Component<TransactionProps, TransactionSt
       id: this.props.data.id || '',
       appVersion: this.props.data.appVersion || '',
       datestamp: this.props.data.datestamp || 0,
-      input: this.props.data.input || `asdf\nasdfan\nasdfa\n\asdf\nasdfsfasdfasdf
-      asd
-      asd
-      asd
-      ad
-      asd
-      asda`,
+      input: this.props.data.input || '',
       category: this.props.data.category || '',
       intentId: this.props.data.intentId || '',
       intentDetail: this.props.data.intentDetail || '',
@@ -92,12 +86,13 @@ export class Transaction extends React.Component<TransactionProps, TransactionSt
     let answer: string = ''
     if (this.props.data && this.props.data.response && this.props.data.response.answers) {
       answer = this.props.data.response.answers[0].answer || ''
+    } else if (typeof this.props.data.response === 'string') {
+      answer = this.props.data.response
     }
 
     const dateFormatOptions: Intl.DateTimeFormatOptions = { weekday: 'short', year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }
     const dateCreated = new Date(this.state.datestamp)
     const dateCreatedString: string = this.state.datestamp ? dateCreated.toLocaleDateString('en-US', dateFormatOptions) : ''
-    const accountId: string = this.props.appModel.accountId
 
     return <div className="transactionColumns">
       <div className="transactionColumn">
@@ -110,7 +105,7 @@ export class Transaction extends React.Component<TransactionProps, TransactionSt
           <label className="answer">ClientId</label>
           <input name="clientId" className="answer" value={this.state.clientId} readOnly />
           <label className="answer">AccountId</label>
-          <input name="accountId" className="answer" value={accountId} readOnly />
+          <input name="accountId" className="answer" value={this.state.accountId} readOnly />
           <label className="answer">SessionId</label>
           <input name="sessionId" className="answer" value={this.state.sessionId} readOnly />
           <label className="answer">Id</label>

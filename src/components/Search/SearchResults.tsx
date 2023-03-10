@@ -119,6 +119,7 @@ export class SearchResults extends React.Component<SearchResultsProps, SearchRes
       count: 0,
       ids: []
     }
+
     results.forEach((result: TransactionData | AnnotationData) => {
       if (!intentIdFilter || `${result.intentId}` === intentIdFilter) {
         if (Model.isTransactionData(result)) {
@@ -231,6 +232,7 @@ export class SearchResults extends React.Component<SearchResultsProps, SearchRes
             </div>
       }
       let linkIndex: number = 1
+      this.state.results.sort((a: any, b: any) => a.datestamp - b.datestamp ) // sort by date
       this.state.results.forEach((result: TransactionData | AnnotationData) => {
         let link: any
         if (Model.isTransactionData(result)) {
